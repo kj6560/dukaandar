@@ -1,0 +1,52 @@
+name: dukaandaar
+description: "The Dukaandaar"
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: '>=3.3.4 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc:
+  equatable:
+  flutter_secure_storage:
+  dio:
+  firebase_core:
+  firebase_messaging:
+  flutter_local_notifications:
+  get_it:
+  email_validator:
+  package_info_plus:
+  hive_flutter:
+  isar_flutter_libs:
+  path_provider:
+  flutter_svg:
+  flutter_barcode_scanner:
+  persistent_bottom_nav_bar:
+  cupertino_icons: ^1.0.6
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/images/
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/launcher_icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path:  "assets/launcher_icon.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path:  "assets/launcher_icon.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: true
+    image_path:  "assets/launcher_icon.png"
