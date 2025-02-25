@@ -2,6 +2,7 @@ library inventory_library;
 
 import 'package:flutter/material.dart';
 
+import '../../../core/routes.dart';
 import '../../../core/widget_view_base.dart';
 
 part 'inventory_list_screen.dart';

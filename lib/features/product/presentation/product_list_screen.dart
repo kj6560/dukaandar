@@ -70,7 +70,7 @@ class ProductListUi
           color: Colors.white,
         ),
         onPressed: () {
-          print("clicked add product");
+          Navigator.popAndPushNamed(context, AppRoutes.newProduct);
         },
       ),
     );

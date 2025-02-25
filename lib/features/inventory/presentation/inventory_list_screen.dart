@@ -70,7 +70,9 @@ class InventoryListUi
           Icons.add,
           color: Colors.white,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.popAndPushNamed(context, AppRoutes.newInventory);
+        },
       ),
     );
   }

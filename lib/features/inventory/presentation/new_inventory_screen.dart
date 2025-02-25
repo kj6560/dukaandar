@@ -1,8 +1,8 @@
-part of sales_list_library;
+part of new_inventory_library;
 
-class SalesListUi extends WidgetView<SalesListUi, SalesListControllerState> {
-  SalesListUi(super.controllerState, {super.key});
-
+class NewInventoryScreen
+    extends WidgetView<NewInventoryScreen, NewInventoryControllerState> {
+  NewInventoryScreen(super.controllerState, {super.key});
   final List<String> items = List.generate(200, (index) => 'Item $index');
 
   @override
@@ -10,7 +10,7 @@ class SalesListUi extends WidgetView<SalesListUi, SalesListControllerState> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text("Sales", style: TextStyle(color: Colors.white)),
+        title: Text("New Inventory", style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.teal,
         elevation: 0,
         // Remove shadow
@@ -49,29 +49,8 @@ class SalesListUi extends WidgetView<SalesListUi, SalesListControllerState> {
           ),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: ListView.builder(
-            itemCount: items.length, // Number of items in the list
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(items[index]), // Displaying list item
-              );
-            },
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.teal,
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-        onPressed: () {
-          Navigator.popAndPushNamed(context, AppRoutes.newSale);
-        },
+      body: Container(
+        child: Text("Coming soon"),
       ),
     );
   }

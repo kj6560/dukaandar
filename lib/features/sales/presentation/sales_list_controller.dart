@@ -2,6 +2,7 @@ library sales_list_library;
 
 import 'package:flutter/material.dart';
 
+import '../../../core/routes.dart';
 import '../../../core/widget_view_base.dart';
 
 part 'sales_list_screen.dart';

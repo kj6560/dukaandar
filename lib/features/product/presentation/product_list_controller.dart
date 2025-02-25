@@ -1,5 +1,6 @@
 library product_list_library;
 
+import 'package:dukaandaar/core/routes.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/widget_view_base.dart';
