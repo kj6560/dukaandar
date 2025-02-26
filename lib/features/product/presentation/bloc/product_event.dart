@@ -10,3 +10,12 @@ abstract class ProductEvent extends Equatable {
 class LoadProductList extends ProductEvent {
   const LoadProductList();
 }
+
+class AddNewProduct extends ProductEvent {
+  final String name;
+  final double price;
+  final String sku;
+
+  const AddNewProduct(
+      {required this.name, required this.price, required this.sku});
+}

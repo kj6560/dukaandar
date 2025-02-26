@@ -20,32 +20,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     try {
       final response =
           await authRepositoryImpl.login(event.emailPhone, event.password);
-      print(response);
       if (response == null || response.data == null) {
         emit(LoginFailure("No response from server"));
         return;
       }
-
-      print('Raw response in bloc: ${response.data.toString()}');
-
-      // Ensure data is always a Map<String, dynamic>
       final data =
           response.data is String ? jsonDecode(response.data) : response.data;
-
-      // Use model to parse data
       final loginResponse = Response.fromJson(data);
-
-      print('Processed response: $loginResponse');
-
       if (loginResponse.statusCode == 400) {
         emit(LoginFailure("Login failed."));
         return;
       }
-
       if (loginResponse.data != null) {
-        //print(loginResponse.data['user']);
         User user = User.fromJson(loginResponse.data['user']);
-
         emit(LoginSuccess(user, loginResponse.data['token']));
       } else {
         emit(LoginFailure("No user found for the given credentials."));

@@ -1,6 +1,9 @@
 library inventory_library;
 
+import 'package:dukaandaar/features/inventory/data/models/inventory_model.dart';
+import 'package:dukaandaar/features/inventory/presentation/bloc/inventory_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/routes.dart';
 import '../../../core/widget_view_base.dart';
@@ -20,6 +23,7 @@ class InventoryListControllerState extends State<InventoryListController> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    BlocProvider.of<InventoryBloc>(context).add(LoadInventoryList());
   }
 
   @override

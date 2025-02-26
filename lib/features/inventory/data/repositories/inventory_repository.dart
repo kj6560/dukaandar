@@ -1,18 +1,20 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 
 import '../../../../core/network/endpoints.dart';
 
-class HomeRepositoryImpl {
+class InventoryRepositoryImpl {
   final Dio dio;
 
-  HomeRepositoryImpl({required this.dio});
+  InventoryRepositoryImpl({required this.dio});
 
-  Future<Response?> fetchKpi(int user_id, String token) async {
+  Future<Response?> fetchInventory(int org_id, String token) async {
     try {
-      // var body = {'user_id': user_id};
+      var body = {'org_id': org_id};
 
       Response response = await dio.get(
-        EndPoints.fetchKpi,
+        EndPoints.fetchInventory,
         options: Options(
           headers: {
             'Content-Type': 'application/json',
@@ -20,7 +22,7 @@ class HomeRepositoryImpl {
             'Authorization': 'Bearer $token',
           },
         ),
-        //data: jsonEncode(body),
+        data: jsonEncode(body),
       );
       return response;
     } catch (e, stacktrace) {

@@ -1,4 +1,16 @@
 part of 'inventory_bloc.dart';
 
-@immutable
-sealed class InventoryEvent {}
+abstract class InventoryEvent extends Equatable {
+  const InventoryEvent();
+
+  @override
+  List<Object> get props => [];
+}
+
+class LoadInventoryList extends InventoryEvent {
+  const LoadInventoryList();
+}
+
+class AddInventory extends InventoryEvent {
+  const AddInventory();
+}

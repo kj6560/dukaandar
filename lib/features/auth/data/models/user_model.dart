@@ -4,7 +4,7 @@ class User {
   String email;
   dynamic emailVerifiedAt;
   String number;
-  int? orgId;
+  int orgId;
   String? createdAt;
   String? updatedAt;
 
@@ -14,7 +14,7 @@ class User {
     required this.email,
     required this.emailVerifiedAt,
     required this.number,
-    this.orgId,
+    required this.orgId,
     this.createdAt,
     this.updatedAt,
   });
@@ -24,11 +24,11 @@ class User {
       id: json['id'],
       name: json['name'],
       email: json['email'],
-      emailVerifiedAt: json['emailVerifiedAt'],
+      emailVerifiedAt: json['email_verified_at'],
       number: json['number'],
-      orgId: json['orgId'],
-      createdAt: json['createdAt'],
-      updatedAt: json['updatedAt'],
+      orgId: json['org_id'],
+      createdAt: json['created_at'],
+      updatedAt: json['updated_at'],
     );
   }
   Map<String, dynamic> toJson() {
@@ -36,11 +36,11 @@ class User {
       'id': id,
       'name': name,
       'email': email,
-      'emailVerifiedAt': emailVerifiedAt,
+      'email_verified_at': emailVerifiedAt,
       'number': number,
-      'orgId': orgId,
-      'createdAt': createdAt,
-      'updatedAt': updatedAt,
+      'org_id': orgId,
+      'created_at': createdAt,
+      'updated_at': updatedAt,
     };
   }
 }

@@ -5,6 +5,7 @@ import 'package:dukaandaar/features/sales/data/repositories/sales_repository.dar
 import 'package:get_it/get_it.dart';
 
 import '../../features/auth/data/repositories/auth_repository.dart';
+import '../../features/inventory/data/repositories/inventory_repository.dart';
 
 final injector = GetIt.instance;
 
@@ -19,6 +20,9 @@ Future<void> init() async {
   });
   injector.registerFactory<ProductRepositoryImpl>(() {
     return ProductRepositoryImpl(dio: injector());
+  });
+  injector.registerFactory<InventoryRepositoryImpl>(() {
+    return InventoryRepositoryImpl(dio: injector());
   });
   injector.registerFactory<SaleRepositoryImpl>(() {
     return SaleRepositoryImpl(dio: injector());

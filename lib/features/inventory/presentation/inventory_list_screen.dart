@@ -51,19 +51,71 @@ class InventoryListUi
         ],
       ),
       body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: ListView.builder(
-            itemCount: items.length, // Number of items in the list
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(items[index]), // Displaying list item
-              );
-            },
-          ),
-        ),
-      ),
+          child: BlocConsumer<InventoryBloc, InventoryState>(
+              listener: (context, state) {},
+              builder: (context, state) {
+                if (state is LoadInventorySuccess) {
+                  return Container(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    child: ListView.builder(
+                      itemCount: state.response.length,
+                      // Number of items in the list
+                      itemBuilder: (context, index) {
+                        InventoryModel inventory = state.response[index];
+                        return Container(
+                          height: 100,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Card(
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [Text(inventory.name)],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Text("In Stock: "),
+                                            Text("${inventory.balanceQuantity}")
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Icon(
+                                              Icons.currency_rupee,
+                                              size: 14,
+                                            ),
+                                            Text('${inventory.productMrp}')
+                                          ],
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                } else if (state is LoadInventoryFailure) {
+                  return Container();
+                } else {
+                  return Container();
+                }
+              })),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.teal,
         child: Icon(

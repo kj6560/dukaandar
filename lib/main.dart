@@ -1,6 +1,7 @@
 import 'package:dukaandaar/core/local/hive_Services.dart';
 import 'package:dukaandaar/core/local/hive_constants.dart';
 import 'package:dukaandaar/features/home/data/repositories/home_repository.dart';
+import 'package:dukaandaar/features/inventory/presentation/bloc/inventory_bloc.dart';
 import 'package:dukaandaar/features/product/data/repositories/product_repository.dart';
 import 'package:dukaandaar/features/product/presentation/bloc/product_bloc.dart';
 import 'package:dukaandaar/features/sales/data/repositories/sales_repository.dart';
@@ -17,6 +18,7 @@ import 'features/auth/presentation/forgot_pass/bloc/forgot_pass_bloc.dart';
 import 'features/auth/presentation/login/bloc/login_bloc.dart';
 import 'features/auth/presentation/register/bloc/register_bloc.dart';
 import 'features/home/presentation/bloc/home_bloc.dart';
+import 'features/inventory/data/repositories/inventory_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,6 +56,9 @@ class MyApp extends StatelessWidget {
         }),
         BlocProvider(create: (context) {
           return ProductBloc(ProductRepositoryImpl(dio: injector()));
+        }),
+        BlocProvider(create: (context) {
+          return InventoryBloc(InventoryRepositoryImpl(dio: injector()));
         }),
         BlocProvider(create: (context) {
           return SalesBloc(SaleRepositoryImpl(dio: injector()));
