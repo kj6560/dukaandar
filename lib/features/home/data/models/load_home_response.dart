@@ -83,9 +83,9 @@ class Products {
 }
 
 class Sales {
-  int salesToday;
-  int salesThisMonth;
-  int salesTotal;
+  String salesToday;
+  String salesThisMonth;
+  String salesTotal;
 
   Sales({
     required this.salesToday,

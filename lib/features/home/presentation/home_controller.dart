@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../core/routes.dart';
 import '../../../core/widget_view_base.dart';
 import '../../../core/widgets/CircularCard.dart';
-import '../../auth/data/models/user_model.dart';
 
 part 'home_screen.dart';
 
@@ -19,8 +18,6 @@ class HomeScreenController extends StatefulWidget {
 }
 
 class HomeScreenControllerState extends State<HomeScreenController> {
-  User? user;
-
   @override
   void initState() {
     // TODO: implement initState
@@ -29,7 +26,7 @@ class HomeScreenControllerState extends State<HomeScreenController> {
   }
 
   @override
-  Widget build(BuildContext context) => HomeScreenUI(this);
-
-  void handleApiResponse(Object? state) {}
+  Widget build(BuildContext context) {
+    return HomeScreenUI(this);
+  }
 }
