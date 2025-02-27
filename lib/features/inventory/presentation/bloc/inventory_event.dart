@@ -12,5 +12,7 @@ class LoadInventoryList extends InventoryEvent {
 }
 
 class AddInventory extends InventoryEvent {
-  const AddInventory();
+  final String sku;
+  final double quantity;
+  const AddInventory({required this.sku, required this.quantity});
 }

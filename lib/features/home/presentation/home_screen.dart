@@ -279,10 +279,6 @@ class HomeScreenUI extends WidgetView<HomeScreenUI, HomeScreenControllerState> {
                                 SizedBox(
                                   width: 15,
                                 ),
-                                Icon(
-                                  Icons.currency_rupee,
-                                  size: 14,
-                                ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
@@ -304,10 +300,6 @@ class HomeScreenUI extends WidgetView<HomeScreenUI, HomeScreenControllerState> {
                                 ),
                                 SizedBox(
                                   width: 15,
-                                ),
-                                Icon(
-                                  Icons.currency_rupee,
-                                  size: 14,
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -336,10 +328,6 @@ class HomeScreenUI extends WidgetView<HomeScreenUI, HomeScreenControllerState> {
                                 ),
                                 SizedBox(
                                   width: 15,
-                                ),
-                                Icon(
-                                  Icons.currency_rupee,
-                                  size: 14,
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -391,10 +379,6 @@ class HomeScreenUI extends WidgetView<HomeScreenUI, HomeScreenControllerState> {
                                 SizedBox(
                                   width: 15,
                                 ),
-                                Icon(
-                                  Icons.currency_rupee,
-                                  size: 14,
-                                ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
@@ -416,10 +400,6 @@ class HomeScreenUI extends WidgetView<HomeScreenUI, HomeScreenControllerState> {
                                 ),
                                 SizedBox(
                                   width: 15,
-                                ),
-                                Icon(
-                                  Icons.currency_rupee,
-                                  size: 14,
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
@@ -448,10 +428,6 @@ class HomeScreenUI extends WidgetView<HomeScreenUI, HomeScreenControllerState> {
                                 ),
                                 SizedBox(
                                   width: 15,
-                                ),
-                                Icon(
-                                  Icons.currency_rupee,
-                                  size: 14,
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),

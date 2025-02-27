@@ -4,3 +4,27 @@ part of 'sales_bloc.dart';
 sealed class SalesState {}
 
 final class SalesInitial extends SalesState {}
+
+class LoadSalesSuccess extends SalesState {
+  final List<SalesModel> response;
+
+  LoadSalesSuccess(this.response);
+}
+
+class LoadSalesFailure extends SalesState {
+  final String error;
+
+  LoadSalesFailure(this.error);
+}
+
+class NewSalesSuccess extends SalesState {
+  final SalesModel response;
+
+  NewSalesSuccess(this.response);
+}
+
+class NewSalesFailure extends SalesState {
+  final String error;
+
+  NewSalesFailure(this.error);
+}

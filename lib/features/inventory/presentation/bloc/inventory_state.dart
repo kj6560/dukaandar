@@ -16,3 +16,15 @@ class LoadInventoryFailure extends InventoryState {
 
   LoadInventoryFailure(this.error);
 }
+
+class AddInventorySuccess extends InventoryState {
+  final InventoryModel response;
+
+  AddInventorySuccess(this.response);
+}
+
+class AddInventoryFailure extends InventoryState {
+  final String error;
+
+  AddInventoryFailure(this.error);
+}

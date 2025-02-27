@@ -1,7 +1,9 @@
 library new_inventory_library;
 
+import 'package:dukaandaar/features/inventory/presentation/bloc/inventory_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/widget_view_base.dart';
 
@@ -16,6 +18,7 @@ class NewInventoryController extends StatefulWidget {
 
 class NewInventoryControllerState extends State<NewInventoryController> {
   String _scanBarcode = "";
+
   Future<void> scanBarcode() async {
     String barcodeScanRes;
     // Platform messages may fail, so we use a try/catch PlatformException.
@@ -26,15 +29,32 @@ class NewInventoryControllerState extends State<NewInventoryController> {
       //Handle the scanned barcode result
       setState(() {
         _scanBarcode = barcodeScanRes;
+        skuController.text = _scanBarcode;
       });
     } catch (e) {
       barcodeScanRes = 'Failed to get platform version.';
     }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
     if (!mounted) return;
+  }
+
+  final formKey = GlobalKey<FormState>();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController quantityController = TextEditingController();
+  TextEditingController skuController = TextEditingController();
+  void createInventory() {
+    if (formKey.currentState!.validate()) {
+      var name = nameController.text.toString();
+      var quantity = quantityController.text.toString();
+      var sku = skuController.text.toString();
+
+      BlocProvider.of<InventoryBloc>(context)
+          .add(AddInventory(sku: sku, quantity: double.tryParse(quantity)!));
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Form submitted successfully!')),
+      );
+    }
+    print("submit linked to controller");
   }
 
   @override
